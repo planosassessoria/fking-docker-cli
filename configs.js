@@ -1,7 +1,7 @@
 const configs = [
   {
     name: 'api-gateway',
-    location: './api-gateway',
+    location: './projects/api-gateway',
     dev: {
       imageName: 'api-gateway-dev:0.0.1',
       containerName: 'api-gateway-dev',
@@ -23,7 +23,7 @@ const configs = [
   },
   {
     name: 'funcionario-service',
-    location: './funcionario-service',
+    location: './projects/funcionario-service',
     dev: {
       imageName: 'funcionario-service-dev:0.0.1',
       containerName: 'funcionario-service-dev',

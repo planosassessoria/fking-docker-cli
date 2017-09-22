@@ -7,4 +7,4 @@ RUN chmod +x /home/node/install.sh \
 # ENV PRODUCTION=false
 
 EXPOSE 3001
-ENTRYPOINT bash
+ENTRYPOINT cd /home/node/funcionario-service && npm start && bash
