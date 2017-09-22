@@ -1,0 +1,8 @@
+{
+  "apps": [
+    {
+      "name": "funcionario-service",
+      "script": "/home/node/funcionario-service/server.js"
+    }
+  ]
+}
