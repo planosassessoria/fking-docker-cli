@@ -1,9 +1,0 @@
-FROM nginx
-COPY ./dev.conf /etc/nginx/conf.d/default.conf
-
-RUN apt-get update -y && apt-get upgrade -y && apt-get install -y net-tools && apt-get install -y iputils-ping
-
-# ENV PRODUCTION=false
-
-EXPOSE 80
-ENTRYPOINT service nginx restart && bash
