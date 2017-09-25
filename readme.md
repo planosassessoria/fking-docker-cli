@@ -8,7 +8,7 @@
 
 After instalation edit the file:
 
-/usr/local/lib/node_modules/configs.js
+/usr/local/lib/node_modules/fking-docker-cli/configs.js
 
 And change the configFile variable
 
