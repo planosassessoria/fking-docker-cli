@@ -5,3 +5,19 @@
 ## How to use?
 
 # *Ask someone or read the fucking code your asshole!*
+
+After instalation edit the file:
+
+/usr/local/lib/node_modules/configs.js
+
+And change the configFile variable
+
+```js
+const configs = {
+  configFile: '/home/operador/Documents/projetos/web/planos/docker/projects/configs.js'
+}
+
+const configFile = require(configs.configFile)
+
+module.exports = configFile
+```

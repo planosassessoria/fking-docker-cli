@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const { promisify } = require('util')
 const child = require('child_process')
 const reader = require('./reader')
