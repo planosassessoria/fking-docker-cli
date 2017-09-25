@@ -21,13 +21,19 @@ const run = async () => {
           '2 - Subir o container em modo de desenvolvimento',
           '3 - Buildar a imagem em modo de produção',
           '4 - Subir o container em modo de produção',
+          '5 - Parar container em modo de desenvolvimento',
+          '6 - Parar container em modo de produção',
+          '7 - Startar container em modo de desenvolvimento',
+          '8 - Startar container em modo de produção',
+          '9 - Restart container em modo de desenvolvimento',
+          '10 - Restart container em modo de produção',
           '0 - SAIR'
         ]
       }
     ]
     const resposta = await inquirer.prompt(options)
     const nr = parseInt(resposta.options)
-    const mode = nr === 1 || nr === 2 ? 'dev' : 'prod'
+    let mode = nr === 1 || nr === 2 ? 'dev' : 'prod'
     // const names = configs[mode]
     let project
 
@@ -72,6 +78,48 @@ const run = async () => {
         console.log('Aeehooo!! Vou rodar o container')
         console.log(chalk.yellow('Isso pode demorar um pouco. Aguarde...'))
         await utils.dockerRun(project, mode)
+        run()
+        break;
+      case 5:
+        mode = 'dev'
+        project = await utils.chooseProject()
+        console.log('Blz. Vou parar o container.')
+        utils.stopContainer(project, mode)
+        run()
+        break;
+      case 6:
+        mode = 'prod'
+        project = await utils.chooseProject()
+        console.log('Blz. Vou parar o container.')
+        utils.stopContainer(project, mode)
+        run()
+        break;
+      case 7:
+        mode = 'dev'
+        project = await utils.chooseProject()
+        console.log('Blz. Vou rodar o container.')
+        utils.startContainer(project, mode)
+        run()
+        break;
+      case 8:
+        mode = 'prod'
+        project = await utils.chooseProject()
+        console.log('Blz. Vou rodar o container.')
+        utils.startContainer(project, mode)
+        run()
+        break;
+      case 9:
+        mode = 'dev'
+        project = await utils.chooseProject()
+        console.log('Blz. Vou dar restart.')
+        utils.restartContainer(project, mode)
+        run()
+        break;
+      case 10:
+        mode = 'prod'
+        project = await utils.chooseProject()
+        console.log('Blz. Vou dar restart.')
+        utils.restartContainer(project, mode)
         run()
         break;
       case 0:

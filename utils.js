@@ -101,11 +101,44 @@ const dockerRun = async (project, mode) => {
   }
 }
 
+const stopContainer = async (project, mode) => {
+  try {
+    const containerName = project[mode].containerName
+    let params = ['docker', 'stop', containerName]
+    console.log(await exec(params))
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+const startContainer = async (project, mode) => {
+  try {
+    const containerName = project[mode].containerName
+    let params = ['docker', 'start', containerName]
+    console.log(await exec(params))
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+const restartContainer = async (project, mode) => {
+  try {
+    const containerName = project[mode].containerName
+    let params = ['docker', 'restart', containerName]
+    console.log(await exec(params))
+  } catch (e) {
+    console.error(e)
+  }
+}
+
 module.exports = {
   exec,
   checkContainer,
   checkImage,
   chooseProject,
   dockerBuild,
-  dockerRun
+  dockerRun,
+  stopContainer,
+  startContainer,
+  restartContainer
 }

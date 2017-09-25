@@ -1,14 +1,16 @@
+const path = `${process.cwd()}/projects`
 const configs = [
   {
     name: 'api-gateway',
-    location: './projects/api-gateway',
+    location: `${path}/api-gateway`,
     dev: {
       imageName: 'api-gateway-dev:0.0.1',
       containerName: 'api-gateway-dev',
       options: {
         memory: '512m',
         port: '80:80',
-        cpus: '.25'
+        cpus: '.25',
+        volume: `${path}/api-gateway/dev/dev.conf:/etc/nginx/conf.d/default.conf`
       }
     },
     prod: {
@@ -23,7 +25,7 @@ const configs = [
   },
   {
     name: 'funcionario-service',
-    location: './projects/funcionario-service',
+    location: `${path}/funcionario-service`,
     dev: {
       imageName: 'funcionario-service-dev:0.0.1',
       containerName: 'funcionario-service-dev',
